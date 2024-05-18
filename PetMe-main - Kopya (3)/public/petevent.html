@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Images/favicon.jpg" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Events</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./introSection.css" />
+    <link rel="stylesheet" href="./navbar.css" />
+    <link rel="stylesheet" href="./mobileView.css" />
+
+    <style>
+#nav1{
+margin-left: -1%;
+}
+
+ .navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-nav{
+    display: flex;
+    margin: 1.5%;
+    font-size: 1.5rem;
+    align-items: center;
+    flex-direction: column;
+  }
+  .mr-auto, .mx-auto{
+    margin-right: auto;
+  }
+  .nav-item:hover{
+    background: #FCA625;
+  }
+  .section-c{
+    color: #FCA625;
+  }
+  .display-5{
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+  
+  @media(min-width:992px){
+    .navbar-expand-lg, .navbar-collapse{
+      display: flex;
+      flex-basis: auto;
+    }
+  }
+  /* navbar end */   
+
+
+  /* landing page start */    
+    #cat-h5, #dog1-h5, #dog2-h5{
+        zoom: 300%;
+        top: 0%;
+        bottom: auto;
+    }
+    
+    #dog2-h5{
+        color: #000;
+        zoom: 200%;
+    }
+    #dog1-h5{
+        color: #000;
+        zoom: 180%;
+    }
+    /*landing page end */
+    
+    /* Form start */
+#form-div {
+    background-color: #fca625;
+    padding: 7%;
+    padding-top: 3%;
+  }
+  #on-vacation-h6 {
+    color: #26945f;
+    position: absolute;
+    width: 283px;
+    height: 35px;
+  
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+  }
+  #booking-p {
+    position: absolute;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    height: 60px;
+  }
+  #your-pet,
+  #book-h1 {
+    position: absolute;
+    width: 552px;
+    height: 68px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 75px;
+  }
+  #your-pet {
+    color: #fca625;
+  }
+  #exampleInputName1,
+  #exampleInputEmail1,
+  #exampleInputName2,
+  #exampleInputName3,
+  #exampleInputName4,
+  #exampleSelect1,
+  #btn-submit {
+    width: 400px;
+    padding: 3%;
+  }
+  #form-services-div {
+    padding: 4%;
+    background-color: #e5e5e5;
+  }
+  #sit,
+  #walk,
+  #board,
+  #groom {
+    padding: 3%;
+    text-align: center;
+    font-size: smaller;
+  }
+  
+  /* Form end */
+
+  /* services start */
+section#services a {
+  text-decoration: none;
+}
+/* services end */
+
+  /* About us start */
+
+ .display-4 {
+   font-size: 3.5rem;
+   font-weight: 500;
+   line-height: 1.2;
+   /* font-family: 'Nunito', sans-serif;
+ } */
+}
+ @media (max-width: 1200px) {
+   .display-4 {
+     font-size: calc(1.475rem + 2.7vw) ;
+   }
+ }
+ /* About us end */
+
+ #intouch, #links {
+  padding-left: 20%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e86298;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    z-index: 1000; /* Diğer içeriklerin üzerine gelmesini sağlamak için z-index ekleyin */
+}
+
+        h1 {
+            margin: 0;
+            padding-top: 60px; /* Başlık ile header arasındaki boşluğu ayarladık */
+            text-align: center; /* Başlığı ortala */
+        }
+
+        input[type="text"],
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Arama çubuğu ve filtreleri ortala */
+            margin-bottom: 20px; /* Arama çubuğu ile etkinlikler arasına boşluk ekledik */
+        }
+
+        #weekly-events {
+            margin-top: 90px; /* Navbar ile etkinlikler arasındaki boşluğu azalttık */
+            overflow-x: auto; /* Yatay kaydırma */
+            white-space: nowrap; /* Kartların yan yana sıralanmasını sağlar */
+            display: flex; /* Etkinlik kartlarını yatayda sırala */
+            justify-content: center; /* Etkinlik kartlarını ortala */
+        }
+
+        .event-item {
+            /* Kart stilleri */
+            width: 300px; /* Kartların genişliği */
+            margin-right: 20px; /* Kartlar arası boşluk */
+        }
+
+        .event-card {
+    background-color: rgba(255, 255, 255, 0.84); /* Beyaz ve %80 saydam bir arka plan rengi */
+    width: 320px; /* Varsayılan genişlik */
+    transition: transform 0.3s; /* Geçiş efekti ekleme */
+    /* Diğer stiller */
+}
+
+.event-card:hover {
+    transform: scale(1.05); /* Üzerine gelindiğinde büyüme miktarını azaltın */
+}
+
+        .events-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); /* Sütunların minimum genişliği 300 piksel, maksimum genişlik ise 1 fr (fraksiyon) */
+    gap: 20px; /* Kartlar arası boşluk */
+    list-style-type: none;
+    max-width: 1200px; /* Grid container'ın maksimum genişliğini ayarlayalım */
+    margin: 0 auto; /* Grid container'ı ortala */
+}
+
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            /* Kart resmi stilleri */
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-details {
+            /* Kart detayları stilleri */
+            padding: 20px;
+            white-space: pre-wrap;
+        }
+
+        .event-title {
+            /* Etkinlik başlığı stilleri */
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            /* Etkinlik açıklaması stilleri */
+            color: #666;
+            
+        }
+
+        .event-date {
+            /* Etkinlik tarihi stilleri */
+            margin-top: 5px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .apply-button {
+            /* Başvuru butonu stilleri */
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .apply-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Küçük ekranlar için stiller */
+        @media (max-width: 600px) {
+            input[type="text"],
+            select {
+                width: 100%;
+            }
+
+            .event-item {
+    /* Kart stilleri */
+    width: 300px; /* Kartların genişliği */
+    margin-right: 20px; /* Kartlar arası boşluk */
+    transition: transform 0.3s; /* Geçiş efekti ekleme */
+}
+
+.event-item:hover {
+    transform: translateY(-5px); /* Üzerine gelindiğinde hafifçe yukarı kaydır */
+}
+
+        }
+
+        .nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    position: relative; /* Sayfanın üstünde sabit kalması için position: relative; */
+    z-index: 1001; /* Diğer içeriklerin üzerine gelmesini sağlamak için z-index ekleyin */
+}
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+        .nav-links li:last-child {
+            margin-right: 0;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #000; /* Link rengi */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #ff0000; /* Linkin üzerine gelindiğinde rengi */
+        }
+        .events-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 sütun oluşturuluyor */
+    grid-auto-flow: row; /* Kartların alt alta sıralanmasını sağlar */
+    gap: 20px; /* Kartlar arası boşluk */
+
+    list-style-type: none;
+}
+
+
+
+    
+    body {
+    background-image: none; /* Arka plan resmini kaldır */
+    background-color: #f7f7f7; /* Arka plan rengini belirt */
+}
+
+
+
+    </style>
+</head>
+
+<body>
+    
+    <header style="background-color: #0c6c51; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+       
+        <nav>
+            <ul class="nav-links" style="display: flex; justify-content: flex-end; align-items: center; list-style-type: none; margin: 0; padding: 0; width: 100%;">
+                <li style="margin-right: 20px;"><a href="/" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                <li style="margin-right: 20px;"><a href="./reportstary.html" style="text-decoration: none; color: white; font-weight: bold;">SOS Report</a></li>
+                <li style="margin-right: 20px;"><a href="./MeetsPet.html" style="text-decoration: none; color: white; font-weight: bold;">Meet Pets</a></li>
+                <li style="margin-right: 20px;"><a href="./donate.html" style="text-decoration: none; color: white; font-weight: bold;">Pet Adoption</a></li>
+                <li style="margin-right: 20px;"><a href="./petservices.html" style="text-decoration: none; color: white; font-weight: bold;">Pet Service</a></li>
+                <li style="margin-right: 20px;"><a href="./petiopyamarket.html" style="text-decoration: none; color: white; font-weight: bold;">PetiShop</a></li>
+                <li style="margin-right: 20px;"><a href="./news.html" style="text-decoration: none; color: white; font-weight: bold;">Pet News</a></li>
+                <li class="nav1" style="margin-right: 20px;"><a href="volunteer.html" style="text-decoration: none; color: white; font-weight: bold;">Become a Volunteer</a></li>
+               
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container-fluid">
+        <div class="row py-1 px-lg-5">
+          <div class="col-lg-2">
+            <a href="index.html" class="navbar-brand d-none d-lg-block">
+              <h1 class="m-0 display-5 text-capitalize fw-bold">
+                <span class="section-c">pet</span
+                ><span class="text-black text-success">iopya</span>
+              </h1>
+            </a>
+          </div>
+    
+    
+
+    <h1>Pet Events</h1>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search events...">
+        <select id="date-filter">
+            <option value="">All Dates</option>
+            <option value="2024-06-15">June 15, 2024</option>
+            <option value="2024-06-18">June 18, 2024</option>
+            <option value="2024-06-20">June 20, 2024</option>
+            <option value="2024-06-22">June 22, 2024</option>
+            <option value="2024-06-25">June 25, 2024</option>
+            <option value="2024-06-27">June 27, 2024</option>
+            <option value="2024-07-01">July 1, 2024</option>
+            <option value="2024-07-05">July 5, 2024</option>
+            <option value="2024-07-10">July 10, 2024</option>
+        </select>
+    </div>
+
+
+    <!-- Haftalık etkinlikler bölümü -->
+    <section id="weekly-events">
+        
+        <!-- Haftalık etkinlik listesi buraya gelecek -->
+        <ul id="event-list" class="events-container">
+            <!-- Etkinlikler -->
+            <li class="event-item">
+                <div class="event-card">
+                    <img class="event-image" src="Assets/Images/petadoption.jpeg" alt="Pet Adoption Day">
+                    <div class="event-details">
+                        <h3 class="event-title">Pet Adoption Day</h3>
+                        <p class="event-description">Join us for a day of pet adoptions at Central Park!</p>
+                        <p class="event-date">Date: June 15, 2024 | Time: 10:00 AM</p> <!-- Saati ekledik -->
+                        <button class="apply-button">Apply</button>
+                    </div>
+                </div>
+            </li>
+            <!-- Diğer etkinlikler buraya gelecek -->
+        </ul>
+    </section>
+
+    <script>
+        // Etkinlik verileri (örnek)
+        const events = [
+            { id: 1, name: "Pet Adoption Day", date: "2024-06-15", location: "Central Park", image: "Assets/Images/petadoption.jpeg", description: "Join us for a day of pet adoptions at Central Park!" },
+            { id: 2, name: "Dog Training Workshop", date: "2024-06-20", location: "Pet Training Center", image: "Assets/Images/dogtraining.jpg", description: "Learn how to train your dog effectively with our expert trainers." },
+            { id: 3, name: "Cat Yoga Session", date: "2024-06-25", location: "Zen Yoga Studio", image: "Assets/Images/yoga-with-cats.jpg", description: "Relax and unwind with our furry friends in a calming yoga session." },
+            { id: 4, name: "Pet Show", date: "2024-06-18", location: "City Park", image: "Assets/Images/detaypet.jpg", description: "Join us for a fun-filled pet show at the city park!" },
+            { id: 5, name: "Pet Parade", date: "2024-06-22", location: "Downtown", image: "Assets/Images/parade.jpeg", description: "Dress up your pets and join our colorful pet parade through downtown!" },
+            { id: 6, name: "Pet Grooming Workshop", date: "2024-06-27", location: "Pet Grooming Center", image: "Assets/Images/cpd-dog-grooming-courses.jpg", description: "Learn essential pet grooming techniques from our experienced groomers." },
+            { id: 7, name: "Pet Health Seminar", date: "2024-07-01", location: "Community Center", image: "Assets/Images/petconference.png", description: "Attend our seminar on maintaining your pet's health and well-being." },
+            { id: 8, name: "Feline Fun Fair", date: "2024-07-05", location: "Fairgrounds", image: "Assets/Images/felinefun.jpeg", description: "Join the fun with your cats at our Feline Fun Fair, with games and prizes for all!" },
+            { id: 9, name: "Puppy Playdate", date: "2024-07-10", location: "Dog Park", image: "Assets/Images/pupyplaydates.png", description: "Bring your puppies for a socializing session and watch them play and make new friends!" }
+        ];
+    
+        // Arama işlevi
+        function searchEvents(query) {
+            const filteredEvents = events.filter(event => {
+                return event.name.toLowerCase().includes(query.toLowerCase()) ||
+                    event.date.toLowerCase().includes(query.toLowerCase()) ||
+                    event.location.toLowerCase().includes(query.toLowerCase());
+            });
+            displayEvents(filteredEvents);
+            addApplyButtonListeners();
+        }
+    
+        // Tarih filtresi işlevi
+        function filterEventsByDate(date) {
+            if (!date) {
+                displayEvents(events);
+                addApplyButtonListeners();
+            } else {
+                const filteredEvents = events.filter(event => event.date === date);
+                displayEvents(filteredEvents);
+                addApplyButtonListeners();
+            }
+        }
+    
+        // Etkinlikleri gösterme işlevi
+        function displayEvents(eventArray) {
+            const eventList = document.getElementById("event-list");
+            eventList.innerHTML = ""; // Liste temizleniyor
+            addApplyButtonListeners();
+            eventArray.forEach(event => {
+                const eventItem = document.createElement("li");
+                eventItem.classList.add("event-item");
+    
+                const eventCard = document.createElement("div");
+                eventCard.classList.add("event-card");
+    
+                const eventImage = document.createElement("img");
+                eventImage.classList.add("event-image");
+                eventImage.src = event.image;
+                eventImage.alt = "Event Image";
+    
+                const eventDetails = document.createElement("div");
+                eventDetails.classList.add("event-details");
+    
+                const eventTitle = document.createElement("h3");
+                eventTitle.classList.add("event-title");
+                eventTitle.textContent = event.name;
+    
+                const eventDescription = document.createElement("p");
+                eventDescription.classList.add("event-description");
+                eventDescription.textContent = event.description;
+    
+                const eventDateTime = document.createElement("p"); // Saat bilgisini tutacak <p> elementi oluşturuluyor
+                eventDateTime.classList.add("event-date");
+                eventDateTime.textContent = `Date: ${formatDate(event.date)} | Time: ${formatTime()}`; // Saat bilgisi ekleniyor
+    
+                const applyButton = document.createElement("button");
+                applyButton.classList.add("apply-button");
+                applyButton.textContent = "Apply";
+                applyButton.dataset.eventId = event.id; // Her butona etkinlik kimliğini ata
+                applyButton.dataset.eventName = event.name; // Her butona etkinlik adını ata
+    
+                eventDetails.appendChild(eventTitle);
+                eventDetails.appendChild(eventDescription);
+                eventDetails.appendChild(eventDateTime); // Saat bilgisi ekleniyor
+                eventDetails.appendChild(applyButton);
+    
+                eventCard.appendChild(eventImage);
+                eventCard.appendChild(eventDetails);
+    
+                eventItem.appendChild(eventCard);
+    
+                eventList.appendChild(eventItem);
+            });
+        }
+    
+        // Tarih formatını ayarlayan yardımcı işlev
+        function formatDate(dateString) {
+            const options = { year: "numeric", month: "long", day: "numeric" };
+            return new Date(dateString).toLocaleDateString("en-US", options);
+        }
+    
+        // Saat formatını ayarlayan yardımcı işlev
+        function formatTime() {
+            const options = { hour: "numeric", minute: "numeric" };
+            return new Date().toLocaleTimeString("en-US", options);
+        }
+    
+        // Arama çubuğuna ve tarih filtresine olay dinleyicisi ekleme
+        const searchInput = document.getElementById("search");
+        searchInput.addEventListener("input", () => {
+            searchEvents(searchInput.value);
+        });
+    
+        const dateFilter = document.getElementById("date-filter");
+        dateFilter.addEventListener("change", () => {
+            filterEventsByDate(dateFilter.value);
+        });
+    
+        // Sayfa yüklendiğinde etkinlikleri göster
+        displayEvents(events);
+        addApplyButtonListeners();
+    
+        // Apply buttonlarına olay dinleyicisi ekleme
+        function addApplyButtonListeners() {
+            const applyButtons = document.querySelectorAll(".apply-button");
+            applyButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const eventId = button.dataset.eventId; // Butona atanmış etkinlik kimliğini al
+                    const eventName = button.dataset.eventName; // Butona atanmış etkinlik adını al
+                    showConfirmationDialog(eventName);
+                });
+            });
+        }
+    
+        // Onay iletişim kutusunu gösterme işlevi
+        function showConfirmationDialog(eventName) {
+            const confirmation = confirm(`Are you sure you want to apply for event ${eventName}?`);
+            if (confirmation) {
+                redirectToFormPage();
+            }
+        }
+    
+        // Form sayfasına yönlendirme işlevi
+        function redirectToFormPage() {
+            // Burada yönlendirmek istediğiniz HTML dosyasının yolunu belirtmelisiniz
+            const formPageURL = "form.html";
+            window.location.href = formPageURL;
+        }
+    </script>
+    
+</body>
+
+</html>

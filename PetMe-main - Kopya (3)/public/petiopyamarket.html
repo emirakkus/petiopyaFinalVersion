@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Images/favicon.jpg" />
+    
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- Font-Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.shopping-cart-list {
+    position: absolute;
+    width: 25rem;
+    right: -0.75rem;
+    top: 2.9rem;
+    padding: 1rem;
+    z-index: 1;
+    background-color: white; /* Beyaz arka plan */
+}
+
+.shopping-cart-list .list-item {
+    margin-top: 1rem;
+}
+
+</style>
+  <!-- header -->
+  <header class="container">
+   
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+      <div class="container">
+        
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="./index.html" class="nav-link active">Home</a>
+            </li>
+          </ul>
+        </div>
+        <div class="shopping-cart position-relative">
+
+          <button type="button" class="btn-cart btn btn-primary position-relative">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="item-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2">0</span>
+          </button>
+
+          <div class="shopping-cart-list bg-primary d-none">
+            <b class="fs-5 text-white my-3">Shopping Cart</b>
+            <div class="row mt-3">
+                <div class="col">
+                    <button class="btn btn-primary btn-buy-now w-100">Buy Now</button>
+                </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- section -->
+  <section class="products mt-5">
+    <div class="container">
+        <div class="row">
+            
+            
+            
+            <!-- Product 1 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/1593118374599_mini.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Golden Special Dog Food</h5>
+                        <p class="cart-text">
+                            Chicken and beef flavor dog food for adult dogs.
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$149.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/1627571639069.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">GranPlus Choice Dog Food</h5>
+                        <p class="cart-text">
+                            Chicken and beef flavor dog food for adult dogs.
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$154.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/food2.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">GranPlus Menu Dog Food</h5>
+                        <p class="cart-text">
+                            Chicken and rice flavor dog food for medium and large adult dogs.
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$154.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 4 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/cat.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Golden Cat Food</h5>
+                        <p class="cart-text">
+                            Salmon flavor cat food for neutered adult cats.
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$176.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 5 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/food4.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Nero Cat Food</h5>
+                        <p class="cart-text">
+                            Chicken and fish flavor cat food for adult cats. 20kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$193.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 6 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/cat.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Allcats Mix Cat Food</h5>
+                        <p class="cart-text">
+                            Cat food for adult cats. 10.1kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$144.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 7 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/food6.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Golden Formula Mini Bits Dog Food</h5>
+                        <p class="cart-text">
+                            Beef and rice flavor dog food for small adult dogs.
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$164.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 8 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/food7.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Golden Formula Light Dog Food</h5>
+                        <p class="cart-text">
+                            Dog food for adult dogs. 15kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$176.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 9 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/10.1.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Royal Canin Veterinary Hypoallergenic Small Dog Food</h5>
+                        <p class="cart-text">
+                            Dog food for small dogs.
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$162.19</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 10 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/small.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Royal Canin Rottweiler Puppy Food</h5>
+                        <p class="cart-text">
+                            Puppy food for Rottweiler. 12kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$405.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 11 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/15kg.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Premier Formula Dog Food</h5>
+                        <p class="cart-text">
+                            Dog food for large and giant breed puppies. Chicken flavor. 15kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$259.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 12 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/pitbull.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Origens Breed-Specific Dog Food</h5>
+                        <p class="cart-text">
+                            Dog food for Pit Bull and Rottweiler puppies. 15kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$187.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 13 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/1593118374599_mini.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Special Dog Adult Dog Food</h5>
+                        <p class="cart-text">
+                            Meat Plus flavor adult dog food.
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$132.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 14 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/special.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Premium Special Dog Adult Dog Food</h5>
+                        <p class="cart-text">
+                            Gold flavor chicken and beef adult dog food. 20kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$199.90</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 15 -->
+            <div class="col-lg-3 col-md-6 mb-3">
+                <div class="card">
+                    <img src="./Assets/Images/20kg.jpg" alt="product" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h5 class="card-title">Special Dog Prime Adult Dog Food</h5>
+                        <p class="cart-text">
+                            Chicken and rice flavor adult dog food for large breed dogs. 15kg
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                            <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$224.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Add more product cards here -->
+        </div>
+    </div>
+</section>
+<footer class="bg-dark text-center text-white py-3">
+    <div class="container">
+        <p>&copy; 2024 Petiopya. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const card = document.getElementsByClassName("card");
+const btnAdd = document.getElementsByClassName("btn-info");
+const btnCart = document.querySelector(".btn-cart");
+const cartList = document.querySelector(".shopping-cart-list");
+
+class Shopping{
+    constructor(title,price,image){
+        this.image = image;
+        this.title = title;
+        this.price = price;
+    }
+}
+
+class UI{
+
+    addToCart(shopping){
+        const listItem = document.createElement("div");
+        listItem.classList = "list-item";
+
+        listItem.innerHTML = 
+        `
+        <div class="row align-items-center text-white-50">
+            <div class="col-md-3">
+                <img src="${shopping.image}" alt="product" class="img-fluid">
+            </div>
+            <div class="col-md-5">
+                <div class="title">${shopping.title}</div>
+            </div>
+            <div class="col-md-2">
+                <div class="price">${shopping.price}</div>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-delete">
+                    <i class="fas fa-trash-alt text-danger"></i>
+                </button>
+            </div>
+        </div>
+        `
+        cartList.appendChild(listItem);
+    }
+
+    removeCart(){
+    let btnRemove = document.getElementsByClassName("btn-delete");
+    let self = this;
+    for (let i = 0; i < btnRemove.length; i++) {
+        btnRemove[i].addEventListener("click", function(){
+            this.parentElement.parentElement.parentElement.remove();
+            self.cartCount();
+
+            // Find the corresponding add to cart button and reset its status
+            let title = this.parentElement.parentElement.querySelector(".title").textContent;
+            for (let j = 0; j < card.length; j++) {
+                let cardTitle = card[j].getElementsByClassName("card-title")[0].textContent;
+                if (title === cardTitle) {
+                    btnAdd[j].classList.remove("disabled");
+                    btnAdd[j].textContent = "Add to Cart";
+                    break;
+                }
+            }
+        })
+    }
+}
+
+
+    cartCount(){
+        let cartListItem = cartList.getElementsByClassName("list-item");
+        let itemCount = document.getElementById("item-count");
+        itemCount.innerHTML = cartListItem.length;
+    }
+
+    cartToggle(){
+        btnCart.addEventListener("click", function(){
+            cartList.classList.toggle("d-none");
+        })
+    }
+    
+}
+document.querySelector(".btn-buy-now").addEventListener("click", function() {
+    window.location.href = "shopping-cart.html"; // Ödeme sayfasının URL'si
+});
+
+
+for (let i = 0; i < card.length; i++) {
+    btnAdd[i].addEventListener("click", function(e){
+        if (btnAdd[i].classList.contains("disabled")) {
+            alert("You can only buy once.");
+            return;
+        }
+        let title = card[i].getElementsByClassName("card-title")[0].textContent;
+        let price = card[i].getElementsByClassName("price")[0].textContent;
+        let image = card[i].getElementsByClassName("card-img-top")[0].src;
+        btnAdd[i].classList.add("disabled");
+        btnAdd[i].textContent = "In Cart";
+        let shopping = new Shopping(title,price,image);
+        let ui = new UI();
+
+        ui.addToCart(shopping);
+        ui.removeCart()
+        ui.cartCount();
+
+
+        e.preventDefault();
+    })
+}
+
+
+document.addEventListener("DOMContentLoaded", ()=> {
+    let ui = new UI();
+
+    ui.cartToggle();
+})
+</script>
+</body>
+
+</html>

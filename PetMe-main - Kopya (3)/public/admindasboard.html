@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Images/favicon.jpg" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold; /* Kalın yazı stilini ekle */
+        }
+    
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 20px;
+        }
+    
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+    
+        .sidebar ul li a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+    
+        .sidebar ul li a:hover {
+            background-color: #555;
+        }
+    
+        .table-container {
+            margin-left: 220px; /* Kenar çubuğu genişliği kadar içeriye al */
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+    
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            border-radius: 8px; /* Köşeleri yuvarlat */
+            overflow: hidden; /* Taşan içerikleri gizle */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+            border: 2px solid #ddd; /* Kenarlık ekle */
+            margin-bottom: 20px;
+            background-color: #fff; /* Beyaz arka plan */
+            display: none; /* Başlangıçta görünmez yap */
+        }
+    
+    caption {
+        font-size: 1.5em;
+        padding: 15px;
+        background-color: #4285f4; /* Mavi arka plan */
+        color: #fff; /* Beyaz metin */
+        border-bottom: 2px solid #4285f4; /* Alt kenarlık */
+        border-radius: 8px 8px 0 0; /* Köşeleri yuvarlat */
+        text-align: center;
+    }
+    
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    tr:hover {
+        background-color: #f9f9f9;
+    }
+    
+    /* Her tabloya farklı arka plan rengi */
+    #contactTable {
+        background-color: #e6f7ff;
+    }
+    
+    #adoptTable {
+        background-color: #ffeded;
+    }
+    
+    #animalReportTable {
+        background-color: #e6ffe6;
+    }
+    
+    #eventFormTable {
+        background-color: #ffe6e6;
+    }
+    
+    #petServicesTable {
+        background-color: #f9f9d2;
+    }
+    
+    /* Responsive Tasarım */
+    @media (max-width: 768px) {
+        .table-container {
+            margin-left: 0;
+            padding: 10px;
+        }
+    
+        .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+    
+        .sidebar ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    
+        .sidebar ul li {
+            margin-bottom: 0;
+        }
+    
+        table {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class="sidebar">
+        <ul>
+            <li><a href="#" onclick="showTable('contactTable')">Contact Form Submissions</a></li>
+            <li><a href="#" onclick="showTable('adoptTable')">Adopt Form Submissions</a></li>
+            <li><a href="#" onclick="showTable('animalReportTable')">Stray Animal Reports</a></li>
+            <li><a href="#" onclick="showTable('eventFormTable')">Event Form Submissions</a></li>
+            <li><a href="#" onclick="showTable('petServicesTable')">Pet Services</a></li>
+            <li><a href="./index.html" onclick=>Exit</a></li>
+
+        </ul>
+    </div>
+    <div class="table-container">
+        <table id="contactTable">
+            <caption id="contactCaption">Contact Form Submissions</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody id="contactTableBody">
+            </tbody>
+        </table>
+
+        <table id="adoptTable">
+            <caption id="adoptCaption">Adopt Form Submissions</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody id="adoptFormResults">
+            </tbody>
+        </table>
+
+        <table id="animalReportTable">
+            <caption id="animalReportCaption">Stray Animal Reports</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Animal</th>
+                    <th>Condition Description</th>
+                    <th>Rescue Status</th>
+                </tr>
+            </thead>
+            <tbody id="animalReportTableBody">
+            </tbody>
+        </table>
+
+        <table id="eventFormTable">
+            <caption id="eventFormCaption">Event Form Submissions</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Event Name</th>
+                </tr>
+            </thead>
+            <tbody id="eventFormResults">
+            </tbody>
+        </table>
+
+        <table id="petServicesTable">
+            <caption id="petServicesCaption">Pet Services</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Service Type</th>
+                    <th>Reservation Time</th>
+                    <th>Hours</th>
+                </tr>
+            </thead>
+            <tbody id="petServicesResults">
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function showTable(tableId) {
+            var tables = document.querySelectorAll('.table-container table');
+            tables.forEach(function(table) {
+                if (table.id === tableId) {
+                    table.style.display = 'table';
+                    table.classList.add('fadeIn'); // Görünürlük animasyonu ekle
+                } else {
+                    table.style.display = 'none';
+                }
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultTableId = 'contactTable'; // Varsayılan olarak gösterilecek tablo
+            showTable(defaultTableId);
+    
+            // Sayfa yüklendiğinde varsayılan tabloyu göster
+            window.onload = async function() {
+                try {
+                    const contactResponse = await fetch('http://localhost:3005/api/v1/contactus/');
+                    const contactData = await contactResponse.json();
+    
+                    const contactTableBody = document.getElementById('contactTableBody');
+                    const contactCaption = document.getElementById('contactCaption');
+                    contactCaption.innerText = `Contact Form Submissions (${contactData.data.contacts.length})`;
+    
+                    contactData.data.contacts.forEach(contact => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${contact.name}</td>
+                            <td>${contact.email}</td>
+                            <td>${contact.message}</td>
+                        `;
+                        contactTableBody.appendChild(row);
+                    });
+                } catch (error) {
+                    console.error('İletişim formu verileri alınamadı:', error);
+                }
+    
+                try {
+                    const adoptResponse = await fetch('http://localhost:3005/api/v1/adopt/');
+                    const adoptData = await adoptResponse.json();
+    
+                    const adoptFormResults = document.getElementById('adoptFormResults');
+                    const adoptCaption = document.getElementById('adoptCaption');
+                    adoptCaption.innerText = `Adopt Form Submissions (${adoptData.data.adoptRequests.length})`;
+    
+                    adoptData.data.adoptRequests.forEach(request => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${request.name}</td>
+                            <td>${request.email}</td>
+                            <td>${request.address}</td>
+                            <td>${request.phone}</td>
+                        `;
+                        adoptFormResults.appendChild(row);
+                    });
+                } catch (error) {
+                    console.error('Adopt formu verileri alınamadı:', error);
+                }
+            
+                try {
+                    const response = await fetch('http://localhost:3005/api/v1/reportAnimal/');
+                    const data = await response.json();
+    
+                    const animalReportTableBody = document.getElementById('animalReportTableBody');
+                    const animalReportCaption = document.getElementById('animalReportCaption');
+                    
+                    if (data.status === 'success') {
+                        animalReportCaption.innerText = `Stray Animal Reports (${data.data.reports.length})`;
+    
+                        data.data.reports.forEach(report => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${report.pname}</td>
+                                <td>${report.email}</td>
+                                <td>${report.address}</td>
+                                <td>${report.contact}</td>
+                                <td>${report.animal}</td>
+                                <td>${report.animalConditionDiscription}</td>
+                                <td>${report.rescueStatus}</td>
+                            `;
+                            animalReportTableBody.appendChild(row);
+                        });
+                    } else {
+                        console.error('Stray animal reports could not be retrieved:', data.message);
+                    }
+                } catch (error) {
+                    console.error('Stray animal reports could not be retrieved:', error);
+                }
+    
+                try {
+                    const response = await fetch('http://localhost:3005/api/v1/forms/');
+                    if (response.ok) {
+                        const eventData = await response.json();
+    
+                        const eventFormResults = document.getElementById('eventFormResults');
+                        const eventCaption = document.getElementById('eventFormCaption');
+                        eventCaption.innerText = `Event Form Submissions (${eventData.data.length})`;
+    
+                        eventData.data.forEach(event => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${event.name}</td>
+                                <td>${event.email}</td>
+                                <td>${event.eventName}</td>
+                            `;
+                            eventFormResults.appendChild(row);
+                        });
+                    } else {
+                        console.error('Event form data could not be retrieved');
+                    }
+                } catch (error) {
+                    console.error('Event form data could not be retrieved:', error);
+                }
+    
+                try {
+                    const response = await fetch('http://localhost:3005/api/v1/petServices/');
+                    if (response.ok) {
+                        const serviceData = await response.json();
+    
+                        const petServicesResults = document.getElementById('petServicesResults');
+                        const petServicesCaption = document.getElementById('petServicesCaption');
+                        petServicesCaption.innerText = `Pet Services (${serviceData.data.length})`;
+    
+                        serviceData.data.forEach(service => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${service.name}</td>
+                                <td>${service.email}</td>
+                                <td>${service.service}</td>
+                                <td>${service.reservationTime}</td>
+                                <td>${service.hours}</td>
+                            `;
+                            petServicesResults.appendChild(row);
+                        });
+                    } else {
+                        console.error('Pet services data could not be retrieved');
+                    }
+                } catch (error) {
+                    console.error('Pet services data could not be retrieved:', error);
+                }
+            };
+        });
+    </script>
+</body>
+</html>

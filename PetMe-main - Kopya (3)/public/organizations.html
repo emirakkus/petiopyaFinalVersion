@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Images/favicon.jpg">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gradient-to-r from-green-400 to-blue-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white font-bold text-2xl">Animal Organizations</a>
+            <div>
+                <a href="index.html" class="text-white mr-4 hover:text-gray-200 transition duration-300">Home</a>
+               
+            </div>
+        </div>
+    </nav>
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold mb-8 text-center text-gray-800">Organizations</h1>
+        <h2 class="text-2xl font-semibold mb-6 text-gray-800">Here is a list of organizations that help pets and animals.</h2>
+        <p class="text-lg mb-8 text-gray-700">If you wish to help donate to the site, you can click here</a>.</p>
+        <!-- Location Filter -->
+        <div class="text-center mb-8">
+            <label for="location" class="text-lg font-semibold mr-2 text-gray-800">Filter by Location:</label>
+            <select id="location" class="bg-white border border-gray-300 rounded-md py-2 px-4">
+                <!-- Options will be dynamically generated here -->
+            </select>
+        </div>
+        <!-- Organizations Container -->
+        <div id="organizations" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Organizations will be dynamically generated here -->
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const organizationsContainer = document.getElementById('organizations');
+    const locationFilter = document.getElementById('location');
+
+    // JSON data containing organization information
+    const organizations = [
+        
+        {
+            "name": "Petsmart Charities",
+            "website": "https://www.petsmartcharities.org/",
+            "logo": "https://www.redlandsdailyfacts.com/wp-content/uploads/migration/2008/200809/NEWS_809309852_AR_0_0.jpg",
+            "location": "Phoenix, AZ",
+            "founded": 1994,
+            
+        },
+        
+        {
+            "name": "SPCA of Wake County",
+            "website": "https://spcawake.org/",
+            "logo": "https://spcawake.org/wp-content/uploads/2019/06/swcnc-logo.png",
+            "location": "United States",
+            "founded": 1967,
+            
+        },
+        
+        {
+            "name": "dharamsala animal rescue",
+            "website": "https://dharamsalaanimalrescue.org/",
+            "logo": "https://dharamsalaanimalrescue.org/wp-content/uploads/2017/06/Dar-logo-New-2-320px.jpg",
+            "location": "india",
+            "founded": 2008,
+            
+        },
+        
+        
+        {
+            "name": "Alley Cat Allies",
+            "website": "https://www.alleycat.org/",
+            "logo": "https://cdn.shopify.com/s/files/1/0546/3005/files/ACA_Logo_Gray_350x.png?v=1587410905",
+            "location": "Bethesda, Maryland",
+            "founded": 1890,
+            
+        },
+        {
+            "name": "Brother Wolf Animal Rescue",
+            "website": "https://www.bwar.org/",
+            "logo": "https://www.bwar.org/wp-content/uploads/2019/08/mobile_logo.png",
+            "location": "Asheville, North Carolina",
+            "founded": 2007,
+            
+        },
+        {
+            "name": "RESQ Charitable Trust",
+            "website": "https://www.resqct.org/",
+            "logo": "https://www.resqct.org/cdn-new/images/logo-01.png",
+            "location": "Pune, Maharashtra",
+            "founded": 2007,
+            
+        },
+        {
+            "name": "Rescue P.A.W.S.",
+            "website": "https://rescuepawsthailand.org/",
+            "logo": "https://rescuepawsthailand.org/wp-content/uploads/2020/02/logo-hori.png",
+            "location": "Thailand",
+            "founded": 2013,
+           
+        },
+        {
+            "name": "Villalobos Rescue Center",
+            "website": "https://www.vrcpitbull.com/",
+            "logo": "https://www.vrcpitbull.com/wp-content/uploads/2013/11/FL.jpg",
+            "location": "New Orleans, Louisiana",
+            "founded": 2006,
+            
+        }
+    ];
+
+    // Function to render organizations based on location filter
+    function renderOrganizations(location) {
+        const filteredOrganizations = location === "All" ? organizations : organizations.filter(org => org.location.toLowerCase() === location.toLowerCase());
+        
+        // Clear existing organizations
+        organizationsContainer.innerHTML = '';
+
+        // Render filtered organizations
+        filteredOrganizations.forEach(org => {
+            const orgElement = document.createElement('div');
+            orgElement.classList.add('bg-white', 'rounded-md', 'shadow-md', 'p-4', 'mb-4');
+
+            orgElement.innerHTML = `
+                <img src="${org.logo}" alt="${org.name}" class="w-full h-24 object-contain mb-4">
+                <h2 class="text-xl font-semibold mb-2">${org.name}</h2>
+                <p class="text-gray-600 mb-2">Location: ${org.location}</p>
+                <p class="mb-4">${org.founded}</p>
+                <a href="${org.website}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block">Click here</a>
+            `;
+
+            organizationsContainer.appendChild(orgElement);
+        });
+    }
+
+    // Populate location filter options
+    const locations = ['All', ...new Set(organizations.map(org => org.location))];
+    locations.forEach(location => {
+        const option = document.createElement('option');
+        option.textContent = location;
+        option.value = location;
+        locationFilter.appendChild(option);
+    });
+
+    // Event listener for location filter change
+    locationFilter.addEventListener('change', function() {
+        renderOrganizations(this.value);
+    });
+
+    // Initial rendering
+    renderOrganizations("All");
+});
+    </script>
+    <footer class="bg-gradient-to-r from-green-400 to-blue-500 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Petiopya. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

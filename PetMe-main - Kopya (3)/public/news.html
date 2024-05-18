@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="apple-touch-icon" sizes="180x180" href="/Assets/Images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/Assets/Images/favicon.jpg">
+	<link rel="icon" type="image/png" sizes="16x16" href="/Assets/Images/favicon.jpg">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+	<link rel="stylesheet" href="./output.css">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./introSection.css">
+	<link rel="stylesheet" href="./navbar.css">
+	<link rel="stylesheet" href="./mobileView.css">
+	
+	<script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<title>Pet News</title>
+	<style>
+		@media (max-width: 600px) {
+			.remove-extra-margin {
+				margin-left: 4% !important;
+				margin-right: 4% !important;
+				padding-left: 0% !important;
+				padding-right: 4% !important;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<header class="header text-gray-400 bg-header-offwhite body-font flex flex-row items-center justify-center lg:justify-around">
+		<div class="flex flex-row items-center md:flex-row md:items-center p-2" id="logo">
+			<span class="mission-1 mission-dark"> Saving Lives </span>
+			<a class="logo-border" href="index.html">
+				<img class="rounded-full logo-size" src="./Assets/Images/logo.jpg" alt="logo" />
+			</a>
+			<span class="mission-2 mission-dark"> Saving Animals </span>
+		</div>
+		<button data-collapse-toggle="navbar-default" type="button" class="absolute top-0 right-4 sm:inline-flex sm:items-center p-2 lg:hidden focus:outline-none text_4" aria-controls="navbar-default" aria-expanded="false" id="nav-button">
+			<span class="sr-only">Open main menu</span>
+			<svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+			</svg>
+		</button>
+		<nav class="">
+			<div class="hidden w-full lg:block z-2" id="navbar">
+				<ul class="w-[100vw] h-1/2 top-0 right-0 p-8 lg:p-4 mt-12 lg:mt-0 text-center text-base lg:text-lg space-y-4 lg:space-y-0 lg:space-x-5 lg:static lg:w-auto flex flex-col rounded-lg items-start lg:items-center lg:bg-transparent lg:border-0 lg:flex-row justify-between">
+					<li>
+						<a href="./index.html" class="text-custom-heading font-bold hover:underline underline-offset-4 turn-red-hover navbar-item">Home</a>
+					</li>
+					<li>
+					  <a href="./MeetsPet.html" class="p-3 text-custom-heading font-bold hover:underline underline-offset-4 turn-red-hover navbar-item">Meet Pets</a>
+					</li>
+					
+					<li>
+					  <a href="./blog.html" class="text-custom-heading font-bold hover:underline underline-offset-4 turn-red-hover navbar-item">Blogs</a>
+					</li>
+					<li>
+					  <a href="./donate.html" class="text-custom-heading font-bold hover:underline underline-offset-4 turn-red-hover navbar-item">Pet Adoption</a>
+					</li>
+					<li>
+						<a
+						  href="./petservices.html"
+						  class="text-custom-heading font-bold hover:underline underline-offset-4 turn-red-hover navbar-item"
+						  >Pet Services</a
+						>
+					  </li>
+					<li>
+					  <div x-data="{ open: false }" @mouseleave="open = false" class="relative">
+						<a @mouseover="open = true" class="text-custom-heading flex font-bold hover:underline underline-offset-4 turn-red-hover navbar-item w-full">
+						  Support Us
+						  <svg xmlns="http://www.w3.org/2000/svg" width="14px" height="14px" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="mt-1">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						  </svg>
+						</a>
+						<div x-show="open" class="z-20 absolute -left-1 w-[7.5rem] py-2 bg-gray-100 rounded-md shadow-xl">
+						  <a href="volunteer.html" class="block px-4 py-2 text-base text-gray-300 text-gray-700 hover:bg-gray-400 hover:text-white">Become a Volunteer</a>
+						</div>
+					  </div>
+					</li>
+					<li>
+						<a
+						  href="./petiopyamarket.html"
+						  class="lg:p-3 text-custom-heading font-bold hover:underline underline-offset-4 turn-red-hover navbar-item"
+						  >PetiShop</a
+						>
+					  </li>
+					<li>
+					  <a href="./reportstary.html" class="text-custom-heading font-bold hover:underline underline-offset-4 turn-red-hover navbar-item">SOS Report</a>
+					</li>
+					
+					<li>
+						<a href="./index.html#contact">
+						  <button
+							class="inline-flex items-center bg-header-contactus border-0 py-2 lg:py-2 text-choco text-base px-2 focus:outline-none text_4 font-bold rounded text-base mt-4 md:mt-0 hover:translate-x-2 transition-transform"
+						  >
+							Contact Us
+							<svg
+							  fill="none"
+							  stroke="currentColor"
+							  stroke-linecap="round"
+							  stroke-linejoin="round"
+							  stroke-width="2"
+							  class="w-4 h-4 ml-1 transform translate-x-0 transition-transform"
+							  viewBox="0 0 24 24"
+							>
+							  <path d="M5 12h14M12 5l7 7-7 7"></path>
+							</svg>
+						  </button>
+						</a>
+					  </li>
+					  
+					  
+					
+		</header>
+
+	<!-- Pet news -->
+	<div class="container mx-auto my-8 px-4">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			<!-- Haber 1 -->
+			<div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+				<img src="Assets/Images/oldestdog.png" alt="World’s oldest dog" class="w-full h-64 object-cover object-center">
+				<div class="p-6">
+					<h2 class="text-xl font-bold mb-2">World’s oldest dog living confirmed as 31-years-old Rafeiro do Alentejo</h2>
+					<p class="text-gray-700">Bobi (born 11 May 1992) is a male purebred Rafeiro do Alentejo dog cared for by Leonel Costa of Conqueiros, Leiria, Portugal. On 2 February 2023, Bobi was confirmed as the first dog on record to live to the age of 30, along with being the oldest dog on record to ever live. On 11 May 2023, Bobi turned 31.</p>
+				</div>
+			</div>
+			
+			
+			<!-- Haber 2 -->
+			<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<img src="Assets/Images/tiny-chi-wearing-pearls.jpg" alt="Meet Pearl, the pocket-sized chihuahua" class="w-full h-64 object-cover object-center">
+				<div class="p-6">
+					<h2 class="text-xl font-bold mb-2">Meet Pearl, the pocket-sized chihuahua named shortest dog by Guinness World Records</h2>
+					<p class="text-gray-700">Measuring at 3.59 inches tall and just five inches in length, Pearl is shorter than a popsicle stick and around the same size as a dollar bill, according to the Guinness World Records.</p>
+				</div>
+			</div>
+			
+			<!-- Haber 3 -->
+			<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<img src="Assets/Images/petnews3.png" alt="Viral Video: Pet Dog goes Paragliding" class="w-full h-64 object-cover object-center">
+				<div class="p-6">
+					<h2 class="text-xl font-bold mb-2">Viral Video: Pet Dog goes Paragliding with owner, netizens react</h2>
+					<p class="text-gray-700">Many social media users are outraged after seeing a video of a dog paragliding with its owner. The now-viral Instagram video demonstrates the four-legged furry ball being properly tethered for flight together with its owner.</p>
+				</div>
+			</div>
+			
+			<!-- Diğer Haberler -->
+<!-- Haber 4 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+    <img src="Assets/Images/0104dogicerescue.jpeg" alt="Dog rescue mission" class="w-full h-64 object-cover object-center">
+    <div class="p-6">
+        <h2 class="text-xl font-bold mb-2">Heartwarming Rescue: Dog stranded on icy lake saved by firefighters</h2>
+        <p class="text-gray-700">Firefighters in Idaho, USA, conducted a daring rescue mission to save a stranded dog from an icy lake. The dog, named Buddy, had fallen through thin ice and was struggling to stay afloat when rescuers arrived.</p>
+    </div>
+</div>
+
+<!-- Haber 5 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+    <img src="Assets/Images/service-dog-graduating-and-certifications.jpg" alt="Service dogs graduation" class="w-full h-64 object-cover object-center">
+    <div class="p-6">
+        <h2 class="text-xl font-bold mb-2">Service Dogs Graduate from Training Program, Ready to Assist Veterans</h2>
+        <p class="text-gray-700">A group of service dogs has graduated from a specialized training program aimed at assisting military veterans with disabilities. The graduation ceremony, held at a training facility in Texas, celebrated the hard work and dedication of both the dogs and their trainers.</p>
+    </div>
+</div>
+
+<!-- Haber 6 -->
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+    <img src="Assets/Images/indirr.jpeg" alt="Dog shelter adoption event" class="w-full h-64 object-cover object-center">
+    <div class="p-6">
+        <h2 class="text-xl font-bold mb-2">Local Dog Shelter Holds Adoption Event, Finds Forever Homes for Dozens of Dogs</h2>
+        <p class="text-gray-700">A local animal shelter organized a successful adoption event, finding forever homes for dozens of dogs in need. The event, which featured discounted adoption fees and activities for families, aimed to raise awareness about pet adoption and reduce the number of animals in shelters.</p>
+			
+		
+		</div>
+	</div>
+
+			<!-- İlk haber -->
+			<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<img src="Assets/Images/petnews4.png" alt="Australian cattle dog" class="w-full h-64 object-cover object-center">
+				<div class="p-6">
+					<h2 class="text-xl font-bold mb-2">New Hilarious Video: Australian Cattle Dog Goes Viral for Digging Irrigation Trench</h2>
+					<p class="text-gray-700">A new hilarious video of an Australian cattle dog is going viral on social media. The energetic dog seems adept at digging an irrigation trench and guiding water. The 59-second video was uploaded on a Twitter page named 'Humour and Animals', which shared the video of the dog digging the water channel.</p>
+				</div>
+			</div>
+			<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<img src="Assets/Images/image-asset.jpeg" alt="Birth Control Could Help Manage Rats In NYC, New Bill Suggests" class="w-full h-64 object-cover object-center">
+				<div class="p-6">
+					<h2 class="text-xl font-bold mb-2">Birth Control Could Help Manage Rats In NYC, New Bill Suggests</h2>
+					<p class="text-gray-700">The bill aims for safer and humane alternatives for rat control, and hopes to protect the city’s wildlife who can be killed by eating poisoned rats - including Flaco the Owl who died back in February.Rats in New York City could be humanely managed by contraceptive pills, according to a new bill introduced last week. 
+The legislation will establish a pilot program to deploy rat contraceptives to see how effective such a method would be in helping to control the city’s rat population.
+			</div>
+			</div>
+			<div class="bg-white rounded-lg shadow-md overflow-hidden">
+				<img src="Assets/Images/434468805_817540943738319_4227524791359204893_n.jpg" alt="Birth Control Could Help Manage Rats In NYC, New Bill Suggests" class="w-full h-64 object-cover object-center">
+				<div class="p-6">
+					<h2 class="text-xl font-bold mb-2">Sixteen Bear Cubs Rescued From Wildlife Trafficker</h2>
+					<p class="text-gray-700">The orphaned moon bears have been taken to a sanctuary after government officials in Laos discovered them being illegally kept at a house in the country’s capital.Sixteen bear cubs are now safe at a sanctuary after government officials in Laos discovered the vulnerable animals being illegally kept at a house in the country’s capital city of Vientiane. 
+                        The orphaned infants are all moon bears, an endangered species which is listed as vulnerable according to the latest assessment by the IUCN Red List of Threatened Species.    
+						
+			</div>
+			
+		</div>
+
+
+
+
+
+	<!-- Footer section  -->
+
+	
+	<script>
+		
+		const date = new Date();
+		const year = date.getFullYear();
+		document.getElementById("date").innerHTML = year;
+	</script>
+	<script src="index.js"></script>
+	<script src="navbar.js"></script>
+	<script src="light-dark-theme.js"></script>
+	<script>
+	fetch("http://localhost:3005/api/v1/volunteers", {
+		method: "POST",
+		body: new FormData(this) // Form verilerini al
+	})
+	.then(response => {
+		if (response.ok) {
+			// Başarılı ise istenilen sayfaya yönlendir
+			window.location.href = "index.html";
+		} else {
+			// Başarısız ise hata mesajını göster
+			alert("Form submission failed!");
+		}
+	})
+	.catch(error => {
+		console.error("Error submitting form:", error);
+		alert("An error occurred while submitting the form.");
+	});
+	
+</script>
+
+
+</body>
+
+</html>
+
+
+
+
+<script src="index.js"></script>
+<script src="light-dark-theme.js"></script>
+<script src="blog.js"></script>
+<script src="navbar.js"></script>
+</body>
+
+</html>
